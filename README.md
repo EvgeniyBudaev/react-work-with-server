@@ -1,7 +1,6 @@
-![Image alt](https://github.com/EvgeniyBudaev/react-work-with-server/raw/master/public/images/readme1.jpg)
-
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+![Image alt](https://github.com/EvgeniyBudaev/react-work-with-server/raw/master/public/images/readme1.jpg)
 
 ## Available Scripts
 
