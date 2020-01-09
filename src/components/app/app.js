@@ -11,6 +11,14 @@ import ErrorBoundry from "../error-boundry";
 import Row from "../row";
 import Record from "../record";
 import "./app.css";
+import {
+  PersonDetails,
+  PlanetDetails,
+  StarshipDetails,
+  PersonList,
+  PlanetList,
+  StarshipList
+} from '../sw-components';
 
 export default class App extends Component {
   swapiService = new SwapiService();
@@ -38,9 +46,13 @@ export default class App extends Component {
       getStarshipImage } = this.swapiService;
 
     const personDetails = (
-      <ItemDetails itemId={11} getData={getPerson} getImageUrl={getPersonImage}>
+      <ItemDetails
+        itemId={11}
+        getData={getPerson}
+        getImageUrl={getPersonImage}>
+
         <Record field="gender" label="Gender" />
-        
+
       </ItemDetails>
     );
 
@@ -48,8 +60,8 @@ export default class App extends Component {
       <ItemDetails
         itemId={5}
         getData={getStarship}
-        getImageUrl={getStarshipImage}
-      >
+        getImageUrl={getStarshipImage}>
+
         <Record field="model" label="Model" />
         <Record field="length" label="Length" />
         <Record field="passengers" label="Passengers" />
@@ -58,17 +70,20 @@ export default class App extends Component {
 
     return (
       <ErrorBoundry>
-      <div className="stardb-app">
-        <Header />
-        {planet}
+        <div className="stardb-app">
+          <Header />
+          {planet}
 
+          <PersonDetails itemId={11} />
+          <PlanetDetails itemId={5} />
+          <StarshipDetails itemId={9} />
 
-        <Row
-        left={personDetails}
-        right={starshipDetails} />
+          <PersonList>{({ name }) => <span>{name}</span>}</PersonList>
 
+          <StarshipList>{({ name }) => <span>{name}</span>}</StarshipList>
 
-      </div>
+          <PlanetList>{({ name }) => <span>{name}</span>}</PlanetList>
+        </div>
       </ErrorBoundry>
     );
   }
