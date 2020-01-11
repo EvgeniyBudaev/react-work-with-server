@@ -13,7 +13,8 @@ const ItemList = props => {
       <li
         className="list-group-item"
         key={id}
-        onClick={() => onItemSelected(id)}>
+        onClick={() => onItemSelected(id)}
+      >
         {label}
       </li>
     );
@@ -21,6 +22,5 @@ const ItemList = props => {
 
   return <ul className="item-list list-group">{items}</ul>;
 };
-
 
 export default ItemList;

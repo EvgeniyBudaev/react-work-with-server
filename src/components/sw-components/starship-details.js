@@ -3,15 +3,14 @@ import ItemDetails from "../item-details";
 import Record from "../record";
 import { withSwapiService } from "../hoc-helper";
 
-const StarshipDetails = (props) => {
-
-        return (
-          <ItemDetails {...props}>
-            <Record field="model" label="Model" />
-            <Record field="length" label="Length" />
-            <Record field="passengers" label="Passengers" />
-          </ItemDetails>
-        );
+const StarshipDetails = props => {
+  return (
+    <ItemDetails {...props}>
+      <Record field="model" label="Model" />
+      <Record field="length" label="Length" />
+      <Record field="passengers" label="Passengers" />
+    </ItemDetails>
+  );
 };
 
 const mapMethodsToProps = swapiService => {
@@ -21,5 +20,4 @@ const mapMethodsToProps = swapiService => {
   };
 };
 
-
-export default withSwapiService(StarshipDetails, mapMethodsToProps);
+export default withSwapiService(mapMethodsToProps)(StarshipDetails);
